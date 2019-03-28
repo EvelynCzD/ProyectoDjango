@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+Hola desde inicio index {{nombre}}
+{% for equipo in equipos %}
+{{equipo.nombre}} <p>
+{% endfor %} 
+{% endblock %}

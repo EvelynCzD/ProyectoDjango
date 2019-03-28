@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+
+<table id ="listajugador">
+
+
+
+</table>	
+{% endblock %}
+{% block js%}
+
+<script>
+
+$(function(){
+	$("#listajugador").bootstrapTable({
+		
+		url: "/api/listajugador/",
+		search: true,
+		showRefresh: true,
+		columns: [{
+			field : 'id',
+			visible: 'true',
+			title: 'id',
+			sortable: true, 
+		},{
+			field : 'nombre',
+			visible : 'true',
+			title: 'nombre',
+		},{
+			field : 'equipo.nombre',
+			visible: 'true',
+			title: 'Equipo',
+		},{
+			field : 'equipo.responsable',
+			visible: 'true',
+			title: 'Responsable',
+		}
+
+
+		]
+
+
+
+		});
+
+	$.ajax({
+
+		url : "/api/listajugador/?format=json",
+		method : "get",
+		success : function (data){
+			
+		}
+
+
+		});
+
+
+
+	})
+
+
+</script>
+{% endblock %}

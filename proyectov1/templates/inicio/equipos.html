@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+
+<table id ="listaequipo">
+
+
+
+</table>	
+{% endblock %}
+{% block js%}
+
+<script>
+
+$(function(){
+	$("#listaequipo").bootstrapTable({
+		
+		url: "/api/equipos/",
+		search: true,
+		showRefresh: true,
+		columns: [{
+			field : 'id',
+			visible: 'true',
+			title: 'id',
+		},{
+			field : 'nombre',
+			visible : 'true',
+			title: 'nombre',
+		}
+
+
+		]
+
+
+
+		});
+
+	$.ajax({
+
+		url : "api/equipos/",
+		method : "get",
+		success : function (data){
+			
+		}
+
+
+		});
+
+
+
+	})
+
+
+</script>
+{% endblock %}
