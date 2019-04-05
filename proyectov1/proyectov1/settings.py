@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.inicio',
+    'apps.catalogos',
     'rest_framework',
 ]
 
@@ -119,6 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "catalogos.User"
 
 from django.urls import reverse_lazy
 LOGIN_URL = reverse_lazy('login')
