@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
 from .views import inicio, lista_jugador, equipos, ListaJugador, ListaEquipos
 
@@ -11,5 +11,5 @@ urlpatterns = [
     path('equipos', equipos, name="equipos"),
     path('api/listajugador/', ListaJugador.as_view(), name="ListaJugador"),
     path('api/equipos/', ListaEquipos.as_view(), name="ListaEquipos"),
-
+    path('catalogos/', include('apps.catalogos.urls'),),
 ]

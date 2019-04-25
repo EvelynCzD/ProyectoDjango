@@ -8,7 +8,7 @@ class Entidad(models.Model):
 
 class Municipio(models.Model):
 	entidad = models.ForeignKey(Entidad, on_delete=models.CASCADE)
-	nombre = models.CharField(max_length=10, blank=True, null=True)
+	nombre = models.CharField(max_length=100, blank=True, null=True)
 
 class Disciplina(models.Model):
 	nombre = models.CharField(max_length=100)
@@ -29,9 +29,9 @@ class Torneo(models.Model):
 
 class User(AbstractUser):
 	nacimiento=models.DateField(blank=True, null=True)
-	telefono=models.IntegerField(max_length=15, blank=True, null=True)
+	telefono=models.CharField(max_length=15, blank=True, null=True)
 	tiposangre=models.CharField(max_length=10, blank=True, null=True)
-	fotografia = models.ImageField(upload_to="")
+	fotografia = models.ImageField(upload_to="usuario_img", blank=True,null=True)
 
 	
 class Arbitro(models.Model):
@@ -61,6 +61,6 @@ class Jugador(models.Model):
 	equipo= models.ForeignKey(Equipo, on_delete=models.CASCADE)
 	alias=models.CharField(max_length=15, blank=True, null=True)
 	posicion=models.CharField(max_length=10, blank=True, null=True)
-	dorsal=models.IntegerField(max_length=3, blank=True, null=True)
+	dorsal=models.CharField(max_length=3, blank=True, null=True)
 
 
